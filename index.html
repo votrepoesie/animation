@@ -1,21 +1,37 @@
 <body></body>
 <script>
   
+  const gifOffset = 10
+  const gifWidth = 30
+  const gifHeight = 20
+  const gifNum = window.innerWidth / gifWidth
+  const numRolls = window.innerHeight / gifHeight
+  const gifURL = 'blinkingheart.gif'
   
   function createGif(x,y) { //don't forget to declare variables!!
     const gif = document.createElement('img') 
-    gif.src = 'heart.gif'
+    gif.src = gifURL
     gif.style.position = 'absolute'
     gif.style.top = y + 'px'
     gif.style.left = x + 'px'//imperative programming
     document.body.appendChild(gif) //adds child gif.src
   }
   
-  for (let i = 0; i < 50; i++) {
-    const x = i * 50
-    createGif(x, 0)
+  function runDis() {
+    for (let i = 0; i < numRolls; i++) {
+    	for (let c = 0; c < gifNum; c++) {
+      	const x = c * gifWidth - gifOffset
+      	const y = i * gifHeight - gifOffset
+      	createGif (x, y)
+   	 	}
+  	}
+  
+  	document.body.style.backgroundColor = 'plum'
+    document.body.style.overflow = 'hidden'
+    
   }
   
-  document.body.style.backgroundColor = 'black'
+  window.addEventListener('load', runDis) //once the code loads
+
   
 </script>
