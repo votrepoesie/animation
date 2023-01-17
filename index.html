@@ -10,7 +10,7 @@
   
   function createGif(x,y) { //don't forget to declare variables!!
     const gif = document.createElement('img') 
-    gif.src = gifURL
+    gif.src = gifURL + '#' + Math.random()
     gif.style.position = 'absolute'
     gif.style.top = y + 'px'
     gif.style.left = x + 'px'//imperative programming
